@@ -19,7 +19,7 @@ public record UserDto(
         @NotNull(message = "Must be True or False")
         Boolean alerting,
 
-        @Positive(message = "A value must be provided")
+        @PositiveOrZero(message = "A value must be provided")
         Double energyAlertingThreshold
 ) {
 }
