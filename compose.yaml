@@ -1,0 +1,16 @@
+services:
+  postgres-user:
+    image: 'postgres:16-alpine'
+    environment:
+      - 'POSTGRES_DB=userdatabase'
+      - 'POSTGRES_PASSWORD=usersecret'
+      - 'POSTGRES_USER=trackeruser'
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'energy-tracker-user-data:/var/lib/postgresql/data'
+      - './init.sql:/docker-entrypoint-initdb.d/init.sql:ro'
+
+
+volumes:
+  energy-tracker-user-data:
